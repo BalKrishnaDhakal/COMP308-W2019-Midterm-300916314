@@ -8,7 +8,7 @@
           <!-- ------------------------ -->
           <!-- FIX THE ADD BUTTON BELOW -->
           <!-- ------------------------ -->
-          <a href="/books/details" role="button" class="btn btn-primary">
+          <a href="/books/add" role="button" class="btn btn-primary">
           <i class="fa fa-plus"></i> Add a book</a>
           <br>
           <div class="table-responsive">
@@ -36,12 +36,21 @@
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
+                     
+                            <a href="<%= books[count]._id %>"
+                                class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>
+                            </td>
+
                   </td>
 
                   <td class="text-center">
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
                     <!-- ------------------------ -->
+                    
+                                    <a href="/<%= books[count]._id %>"
+                                        class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    </td>
                   </td>
                 </tr>
                 <% } %>

@@ -8,18 +8,17 @@ let book = require('../models/books');
 
 /* GET books List page. READ */
 router.get('/', (req, res, next) => {
-  // find all books in the books collection
-  book.find( (err, books) => {
-    if (err) {
-      return console.error(err);
-    }
-    else {
-      res.render('books/index', {
-        title: 'Books',
-        books: books
-      });
-    }
-  });
+    // find all books in the books collection
+    book.find((err, books) => {
+        if (err) {
+            return console.error(err);
+        } else {
+            res.render('books/index', {
+                title: 'Books',
+                books: books
+            });
+        }
+    });
 
 });
 
@@ -29,6 +28,10 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    res.render('books/details', {
+        title: 'Add New Books',
+        books: ''
+    });
 
 });
 
