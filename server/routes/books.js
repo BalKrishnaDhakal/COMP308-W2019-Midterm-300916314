@@ -35,12 +35,31 @@ router.get('/add', (req, res, next) => {
 
 });
 
+/* GET request - display the Edit page */
+
+
+
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
      *****************/
+    let newBook = book({
+        "Title": req.body.title,
+        "Price": req.body.price,
+        "Author": req.body.author,
+        "Genre": req.body.genre
+    });
+    book.create(newBook, (err, book) => {
+        if (err) {
+            console.log(err);
+            res.end();
+        } else {
+            // Refresh the book list
+            res.redirect('/books');
+        }
+    });
 
 });
 
@@ -50,6 +69,19 @@ router.get('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let id = req.params.id;
+    book.findById(id, (err, bookObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // show the details of edit or delete results
+            res.render('books/details', {
+                title: 'Edit Details Book',
+                books: bookObject,
+            });
+        }
+    });
 });
 
 // POST - process the information passed from the details form and update the document
@@ -58,6 +90,23 @@ router.post('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let id = req.params.id;
+    let newBook = book({
+        "_id": id,
+        "Title": req.body.title,
+        "Price": req.body.price,
+        "Author": req.body.author,
+        "Genre": req.body.genre
+    });
+    book.update({ _id: id }, newBook, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // Refresh favourite books-list
+            res.redirect('/books')
+        }
+    });
 
 });
 
@@ -67,6 +116,20 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let id = req.params.id;
+    //deleting methods 
+    book.remove({ _id: id }, (err) => {
+
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            //Refresh Favvourite List
+            res.redirect('/books');
+
+        }
+
+    });
 });
 
 
