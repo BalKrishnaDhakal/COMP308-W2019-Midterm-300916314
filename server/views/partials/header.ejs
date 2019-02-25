@@ -40,16 +40,16 @@
             <li><a href="/books"><i class="fa fa-book fa-lg">
             </i> Books List</a></li>
           <% } %>
- <!-- to show login  button at the top nav -->
+            <!-- to show login  button at the top nav -->
            <% if(typeof displayName == 'string' && displayName) { %>
             <li class="navbar-text">
-              <i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %>
+              <i class="fa fa-user fa-lg"></i> Welcome, <%= displayName %>
             </li>
             <li class="nav-item"><a href="/logout" class="nav-link">
-              <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
+              <i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           <% } else { %>
             <li class="nav-item"><a href="/login" class="nav-link">
-              <i class="fas fa-lg fa-sign-in-alt"></i> Login</a></li>
+              <i class="fa fa-sign-in fa-lg"></i> Login</a></li>
             <% } %>
 
       </ul>
