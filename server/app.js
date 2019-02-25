@@ -59,6 +59,18 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// create User model
+let userModel = require('./models/user');
+let User = userModel.User;
+
+//implement a user authentication strategy
+passport.use(User.createStrategy());
+
+// serialize and deserialize the user info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 // route redirects
 app.use('/', index);
 app.use('/books', books);
