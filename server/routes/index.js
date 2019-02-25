@@ -2,9 +2,15 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+let passport = require('passport'); // for auth
 
 // define the game model
 let book = require('../models/books');
+
+// Reference to user model...
+let userModel = require('../models/user');
+let User = userModel.User; // this is alias for user model
+
 
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {
@@ -15,7 +21,7 @@ router.get('/', (req, res, next) => {
 });
 
 
-/* GET ==> display the login pag */
+/* GET -- display the login pag */
 router.get('/login', (req, res, next) => {
 
     //checking if user is login
