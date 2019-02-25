@@ -1,9 +1,12 @@
     /* *********************************
-            Student Name: Bal Krishna Dhakal
-            Student ID: 300916314
-            Description: COMP308-W2019 Midterm Test
-            Date Created: 23rd Feb, 2019 
-            ************************************/
+                Student Name: Bal Krishna Dhakal
+                Student ID: 300916314
+                Description: COMP308-W2019 Midterm Test
+                Date Created: 23rd Feb, 2019 
+                Link to GitHub: https://github.com/BalKrishnaDhakal/COMP308-W2019-Midterm-300916314
+               Link to Heroku: https://comp308-w2019-midterm-30091631.herokuapp.com/
+                    
+                ************************************/
     // modules required for routing
     let express = require('express');
     let router = express.Router();
